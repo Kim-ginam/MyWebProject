@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body{
+            background-image : url(https://i.imgur.com/qYCrhsg.jpg);
+            background-repeat : no-repeat;
+            background-size : cover;
+
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            setInterval(function () {
+                var today = new Date();
+                var now = today.getFullYear();
+                now += '-' + (today.getMonth() + 1).toString();
+                now += '-' + today.getDate();
+                now += ' ' + today.getHours();
+                if(today.getMinutes() < 10) {
+                    now += ':0' + today.getMinutes();
+                }
+                else{
+                    now += ':' + today.getMinutes();
+                }
+
+                $('#clock').text("현지 시간: " + now);
+            },1000);
+            $('th').css("font-size","30px");
+            $('td:eq(1)').css("color","red");
+
+        })
+    </script>
+</head>
+<body>
+
+<table width="90%">
+    <tr>
+        <th align="left">아시아 여행지</th>
+        <th id="clock" align="right"></th>
+    </tr>
+</table>
+<h2>여행지 1. 오사카</h2>
+
+<table width="90%">
+
+    <tr><td rowspan="2">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/BX-OFZUU0_E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>    </td>
+        <td align="center">
+            ★오사카여행 추천스팟 정리★
+        </td>
+    </tr>
+    <tr>
+        <td>
+                    <pre>
+
+                1. 도톤보리
+
+                2. 오사카 성
+
+                3. 유니버설 스튜디오 재팬
+
+                4. 우메다 스카이빌딩
+
+                5. 신사이바시스지
+
+                6. 쓰텐카쿠
+
+                7. 시텐노지
+
+                by 여행에 미치다
+                    </pre></td>
+    </tr>
+</table>
+</body>
+</html>

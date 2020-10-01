@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <style>
+        body{
+            background-image : url(https://t1.kakaocdn.net/friends/prod/brand/201907_type1_2880.jpg);
+            background-repeat : no-repeat;
+            background-size : cover;
+
+        }
+        marquee{
+            color:black;
+            height: 100px;
+        }
+
+        #btn{
+            right: 5px;
+        }
+        #slide img{
+            height : 300px;
+            width : 400px;
+        }
+        .header{
+            color: red;
+        }
+        .background0{
+            background-color: darkgray;
+            color: red;
+        }
+        .background1{
+            background-color: #f9f30f;
+            color: #139aff;
+        }
+        .background2{
+            background-color: #e68d9f;
+            color: #69ff1e;
+        }
+        .background3{
+            background-color: #e4dfe6;
+            color: #ad1bff;
+        }
+    </style>
+    <title>  기남's 웹 사이트 </title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+    <script>
+
+        var isClicked = false;
+        var isClicked2 = false;
+        var isClicked3 = false;
+        $(document).ready(function () {
+            $('.slide').bxSlider({
+                auto: true,
+                speed: 500,
+                pause: 4000,
+                mode: 'horizontal',
+                slideWidth: 500,
+            });
+            $('#reason').click(function () {
+                if(isClicked == false) {
+                    var output = "";
+                    output = "코로나19 사태로 인하여 집에만 있게되어 답답함을 많이 느끼고, 여행을 가고 싶지만 가지 못하는 현실에" +
+                        " 간접으로 경험을 하고자 랜선여행에 관심을 가지게 되었고, 많이 찾아 보게 되어서 랜선여행을 주제로 선정하였습니다.";
+                    $('<h4></h4>').html(output).appendTo('#reason');
+                    isClicked = true;
+                };
+
+            });
+            $('#trip').click(function () {
+                if(isClicked2 == false) {
+                    var output2 = "<table border='2px'>";
+                    output2 += '<tr> <th>지역</th>';
+                    output2 += '<th>시차</th>';
+                    output2 += '<th>서울로 부터의 거리</th></tr>';
+                    for(var i in intro){
+                        output2 += '<tr> <td>'+intro[i].getRegion()+'</td>';
+                        output2 += '<td align="center">'+intro[i].getTime()+'</td>';
+                        output2 += '<td align="center">'+intro[i].getKm()+'</td></tr>';
+                    }
+
+                    output2 += '</table>';
+                    $('#btn').html(output2);
+                    $('th:eq(0)').addClass('background0');
+                    $('th:eq(1)').addClass('background0');
+                    $('th:eq(2)').addClass('background0');
+                    $('td').each(function (index, item) {
+                        if(index % 3 == 0 && index < 18){
+                            $(this).addClass('background1');
+                        }
+                        else if(index % 3 == 1 && index < 18){
+                            $(this).addClass('background2');
+                        }
+                        else if(index % 3 == 2 && index < 18){
+                            $(this).addClass('background3');
+                        }
+                    });
+
+
+
+                    isClicked2 = true;
+                }
+                else{
+                    $('#btn').empty();
+                    isClicked2 = false;
+                }
+
+            });
+            $('#my').click(function () {
+                if(isClicked3 == false) {
+                    var output3 = "";
+                    output3 = "<div>";
+                    output3 += "<h3 class='header'>1. 인적 사항</h3>";
+                    output3 += "<h4>이름 : 김기남</h4>";
+                    output3 += "<h4>생년월일 : 1996년 2월 20일</h4>";
+                    output3 += "<h4>이메일 주소 : assemble8282@naver.com</h4>";
+                    output3 += "<br><h3 class='header'>2.취미 및 특기</h3>";
+                    output3 += "<h4>취미 : 음악감상, 여행</h4>";
+                    output3 += "<h4>특기 : 컴퓨터 게임, 공부</h4>";
+                    output3 += "<br><h3 class='header'>3.장단점(SWOT)</h3>";
+                    output3 += "<h4>장점1 : 단 한번도 지각을 하지 않는 성실함</h4>";
+                    output3 += "<h4>장점2 : 무언가에 꽃혔을 때 집중력이 좋다</h4>";
+                    output3 += "<h4>단점1 : 소심함</h4>";
+                    output3 += "<h4>단점2 : 잠이 많음</h4>";
+                    output3 += "<br><h3 class='header'>4.기타</h3>";
+                    output3 += "<h4>2014년 명지대 입학</h4>";
+                    output3 += "<h4>2014년 명지대 공학입문설계 디자인상</h4>";
+                    output3 += "<h4>2016년 군 입대</h4>";
+                    output3 += "<h4>2016년 12월 연대음어경연대회 우수상</h4>";
+                    output3 += "<h4>2017년 군 만기 제대</h4>";
+                    output3 += "<h4>2019년 5월 정보처리산업기사 취득</h4>";
+                    output3 += "<h4>2019년 5월 컴퓨터활용능력 1급 취득</h4>";
+                    output3 += "<h4>2019년 8월 정보처리기사 취득</h4>";
+                    output3 += "<h4>2020년 1월 토익 760점 취득</h4>";
+                    output3 += "<h4>2020년 2월 한국사능력검정 2급 취득</h4></div>";
+                    $('#introduce').html(output3);
+                    isClicked3 = true;
+                }
+                else{
+                    $('#introduce').empty();
+                    isClicked3 = false;
+                }
+
+            });
+
+
+        });
+
+        class regions{
+
+            constructor(r, t, k) {
+
+
+                this._region = r;
+                this._time = t;
+                this._km = k;
+            }
+            getRegion = function () {
+                return this._region;
+
+            };
+            getTime = function () {
+                return this._time;
+
+            };
+            getKm = function () {
+                return this._km;
+
+            };
+            setRegion = function (r) {
+                this._region = r;
+            };
+            setTime = function (t) {
+                this._time = t;
+            };
+            setKM = function (k) {
+                this._km = k;
+            };
+
+        };
+
+
+        regions.prototype.toString = function () {
+            return this.getRegion() +'    '+ this.getTime() +'     '+ this.getKm();
+        };
+
+        var intro = [];
+        intro.push(new regions('남해','0','314km'));
+        intro.push(new regions('제주도','0','455km'));
+        intro.push(new regions('오사카','0','829km'));
+        intro.push(new regions('대만','-1','1,644m'));
+        intro.push(new regions('오스트리아','-7','8,423km'));
+        intro.push(new regions('스위스','-7','8,825km'));
+
+
+
+
+
+
+
+   </script>
+</head>
+<body>
+<marquee direction = left id = m2 scrolldelay = 2  scrollamount = 2 >
+    <h2>Welcome my website!</h2>
+</marquee>
+<br>
+
+<h3> 안녕하세요. 김기남의 홈페이지에 오신것을 환영합니다. </h3>
+    <p>
+<h4> 나의 소개</h4>
+<div style="display: inline">
+<div>
+    저는 현재 명지대학교 정보통신공학과에 재학중인 김기남이라고 합니다.
+</div>
+    <button id = my>펼치기</button>
+    <div id = introduce>
+    </div>
+</div>
+<p>
+<h4> 나의 관심주제  : 랜선여행</h4>
+<p>
+    <button id="trip">여행지</button>
+<div id = "btn"></div>
+<p>
+<h4 id = "reason"> 관심주제선정 이유</h4>
+
+
+    <br>
+
+    <br>
+<table align = center width = 80% border = 1>
+    <tr>
+        <th>추천 여행 장소</th>
+        <th>추천 SNS</th>
+    </tr>
+    <tr>
+        <td align = "middle" >
+
+            <ul class = "slide">
+                <li><img height="300px" src="https://img-wishbeen.akamaized.net/plan/1463029230608__%EC%8A%AC%EB%A1%9C%EB%B2%A0%EB%8B%88%EC%95%8403.jpg"></li>
+                <li><img height="300px" src="https://travelblog.expedia.co.kr/wp-content/uploads/2019/05/%EC%BD%94%ED%83%80%ED%82%A4%EB%82%98%EB%B0%9C%EB%A3%A8-3.jpg"></li>
+                <li><img height="300px" src="https://travelblog.expedia.co.kr/wp-content/uploads/2019/02/6.%EB%A7%88%EC%B9%B4%EC%98%A4%EB%B2%A0%EB%84%A4%EC%8B%9C%EC%95%88%EB%A6%AC%EC%A1%B0%ED%8A%B8resize.png"></li>
+                <li><img height="300px" src="https://img-wishbeen.akamaized.net/plan/1437120867989_%EB%A9%94%EC%9D%B8.png"></li>
+                <li><img height="300px" src="https://static.hubzum.zumst.com/hubzum/2018/02/05/11/3f8f51322b174a62bbbfae5a932beb3a_780x0c.jpg"></li>
+
+
+            </ul>
+
+        </td>
+        <td align = center>
+            <ul>
+                <li><a href = "https://ko-kr.facebook.com/travelholic1/ "target = "_blank">여행에 미치다</a></li>
+                <li><a href = "https://www.youtube.com/channel/UC2oeFByIBQjkKXmQjE0U5rQ/ "target = "_blank">여행은 마이리얼트립</a></li>
+                <li><a href = "https://www.youtube.com/channel/UCGO51ouV5uqQp727bPJt7Ig/videos "target = "_blank">랜선 유럽여행 Johannes TV</a></li>
+            </ul>
+        </td>
+    </tr>
+</table>
+<p>
+
+</body>
+</html>
